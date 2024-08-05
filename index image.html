@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image gallery</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="ring">Ring</li>
+            <li class="list" data-filter="food">Food</li>
+            <li class="list" data-filter="mobile">Mobile</li>
+            <li class="list" data-filter="pen">Pen</li>
+        </ul>
+        <div class="product">
+            <div class="itembox"data-item="ring"><img src="C:\PROGRAM\ring1.jpg"></div>
+            <div class="itembox"data-item="food"><img src="C:\PROGRAM\food1.jpg"></div>
+            <div class="itembox"data-item="mobile"><img src="C:\PROGRAM\moobile1.jpg"></div>
+            <div class="itembox"data-item="pen"><img src="C:\PROGRAM\pen1.jpg"></div>
+
+            <div class="itembox"data-item="food"><img src="C:\PROGRAM\food2.jpg"></div>
+            <div class="itembox"data-item="mobile"><img src="C:\PROGRAM\mobile2.jpg"></div>
+            <div class="itembox"data-item="pen"><img src="C:\PROGRAM\pen2.jpg"></div>
+
+            <div class="itembox"data-item="food"><img src="C:\PROGRAM\food3.jpg"></div>
+            <div class="itembox"data-item="pen"><img src="C:\PROGRAM\pen3.jpg"></div>
+        </div>
+    </section>
+    <script>
+        let list=document.querySelectorAll('.list');
+        let itembox=document.querySelectorAll('.itembox');
+        for(let i=0;i<list.length;i++){
+            list[i].addEventListener('click',function(){
+                for(let j=0;j<list.length;j++){
+                    list[j].classList.remove('active');
+                }
+                this.classList.add('active')
+
+                let datafilter = this.getAttribute('data-filter');
+                
+                for (let k = 0; k<itembox.length; k++) {
+                    itembox[k].classList.remove('active');
+                    itembox[k].classList.add('hide')
+
+                    if (itembox[k].getAttribute('data-item')== datafilter||datafilter=="all") {
+                        itembox[k].classList.remove('hide');
+                        itembox[k].classList.add('active')
+                        
+                    }
+                    
+                }
+            })
+        }
+
+    </script>
+</body>
+</html>
